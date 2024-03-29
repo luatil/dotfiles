@@ -102,3 +102,6 @@ $env.PATH = ($env.PATH | uniq)
 
 # -----------------------------------
 $env.EDITOR = nvim
+
+alias gs = git status
+alias la = ls -a
