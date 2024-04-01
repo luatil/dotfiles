@@ -839,3 +839,7 @@ $env.config = {
         }
     ]
 }
+
+# Custom commands
+def klog [s: string] { kubectl get pods | from ssv | where NAME =~ $s | get NAME | first | kubectl logs $in }
+def kpods [] { kubectl get pods | from ssv }
