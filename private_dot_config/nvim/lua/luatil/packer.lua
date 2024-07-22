@@ -38,9 +38,19 @@ return require('packer').startup(function(use)
 
   })
 
-  use 'github/copilot.vim'
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+  }
 
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+  use "theHamsta/nvim-dap-virtual-text"
+
+  use "mfussenegger/nvim-dap-python"
+  use "mortepau/codicons.nvim"
 
   use { 'paretje/nvim-man' }
 
